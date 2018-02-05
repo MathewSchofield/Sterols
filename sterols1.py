@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is a temporary script file.
+Created on 05.02.18.
+Find a relationship between Sterols in an Ice-Core sample. Use these to predict
+other factors (age, water temperature etc.)
 """
 
 
@@ -22,26 +21,22 @@ from sklearn.multioutput import MultiOutputRegressor
 from sklearn.metrics import accuracy_score
 from sklearn import preprocessing, utils
 
-print('k')
 
 class Sterols():
-    
+
     def __init__(self):
         pass
-    
+
     def LoadData(self):
         self.data = pd.read_csv('/Users/katenewton/desktop/sterols.csv')
         print(self.data)
-    
-    
+
     def random_forest_regression(self):
         """ Perform Random Forest Regression on the X, Y data.
             RF: Random Forest
             MRF: Multi Random Forest """
 
-        #self.y = self.y[['SNR2', 'SNR3']]
-        #print self.y
-        #sys.exit()
+
         x = self.data[['1.0', '2.0', '3.0']].as_matrix()
         y = self.data['4.0'].as_matrix()
 
@@ -67,12 +62,12 @@ class Sterols():
         rf_test = regr_rf.score(x_test, y_test)  # how well has RF done:
         print 'RF Test: ', rf_test
 
-    
-    
-    
-    
-    
-        
+
+
+
+
+
+
 
 if __name__ == '__main__':
     s = Sterols()
