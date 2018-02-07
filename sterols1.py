@@ -12,6 +12,7 @@ import numpy as np
 import os
 import sys
 import matplotlib.pyplot as plt
+from config import *
 
 
 import sklearn.linear_model
@@ -28,7 +29,7 @@ class Sterols():
         pass
 
     def LoadData(self):
-        self.data = pd.read_csv('/Users/katenewton/desktop/sterols.csv')
+        self.data = pd.read_csv('sterols.csv')
         print(self.data)
 
     def random_forest_regression(self):
@@ -37,8 +38,8 @@ class Sterols():
             MRF: Multi Random Forest """
 
 
-        x = self.data[['1.0', '2.0', '3.0']].as_matrix()
-        y = self.data['4.0'].as_matrix()
+        x = self.data[['1', '2', '3']].as_matrix()
+        y = self.data['4'].as_matrix()
 
         test_size = 0.2  # use 30% of the data to test the algorithm (i.e 70% to train)
         random_state = 42  # keep this constant to keep the results constant
